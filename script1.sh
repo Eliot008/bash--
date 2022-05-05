@@ -6,5 +6,6 @@ status=$(systemctl is-active $service) # Створюємо змінну status 
 if [ "$status" == "active" ]; then  # Порівнюємо змінну status чи вона дорівнює active
         echo "This service: ACTIVE" # Якщо так виводимо "This service: ACTIVE"
 else
-        echo "Good" # Якщо ні виводимо "Good"
+        systemctl start $service
+        echo "$service is runing. Status ACTIVE" # Якщо ні стартуємо і показуємо, що він активний
 fi;
